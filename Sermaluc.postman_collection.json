@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "e72b37f1-0c90-40fd-b7b7-9f25c4a8deab",
+		"name": "Sermaluc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "2. BCI",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZXJlbmN5QHNlcm1hbHVjLnBlIiwiaWF0IjoxNzM0OTU2NzA4LCJleHAiOjE3MzQ5NjAzMDh9.XauVw8kWa6glKhGMHzF9_P59Sbgx8i-TyIDQJlQ55zM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Andy\",\r\n  \"email\": \"juan@rodriguez.org\",\r\n  \"password\": \"deLl%1245\",\r\n  \"phones\": [\r\n    {\r\n      \"number\": \"1234567\",\r\n      \"cityCode\": \"1\",\r\n      \"countryCode\": \"57\"\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/user/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "BCI",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Andy\",\r\n  \"email\": \"juan@rodriguez.org\",\r\n  \"password\": \"deLl%1245\",\r\n  \"phones\": [\r\n    {\r\n      \"number\": \"1234567\",\r\n      \"cityCode\": \"1\",\r\n      \"countryCode\": \"57\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/user/create",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"create"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 23 Dec 2024 12:41:27 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"1d1f7ce2-0106-476b-af2d-fe62354f9d77\",\n    \"name\": \"Andy\",\n    \"email\": \"juan@rodriguez.org\",\n    \"created\": \"2024-12-23T13:41:27.493132\",\n    \"modified\": \"2024-12-23T13:41:27.493132\",\n    \"lastLogin\": \"2024-12-23T13:41:27.493132\",\n    \"token\": \"Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZXJlbmN5QHNlcm1hbHVjLnBlIiwiaWF0IjoxNzM0OTU2NzA4LCJleHAiOjE3MzQ5NjAzMDh9.XauVw8kWa6glKhGMHzF9_P59Sbgx8i-TyIDQJlQ55zM\",\n    \"active\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "1. Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"gerency@sermaluc.pe\",\r\n    \"password\": \"deLl#53\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"gerency@sermaluc.pe\",\r\n    \"password\": \"deLl#53\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 23 Dec 2024 12:38:21 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZXJlbmN5QHNlcm1hbHVjLnBlIiwiaWF0IjoxNzM0OTU3NTAxLCJleHAiOjE3MzQ5NjExMDF9.tcjh-eqXGd0d3tYLB-7_Je0PsIrlKWGBfqBkT1YHQTU\"\n}"
+				}
+			]
+		}
+	]
+}

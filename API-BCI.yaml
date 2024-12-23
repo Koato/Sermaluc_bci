@@ -1,0 +1,156 @@
+openapi: "3.0.3"
+info:
+  title: "Sermaluc API"
+  description: "Desarrollo del reto técnico de Sermaluc - BCI"
+  version: "1.0.0"
+servers:
+  - url: "http://localhost:8080"
+tags:
+  - name: BCI
+    description: Petición para loguearte y registrar nuevo usuario
+paths:
+  /api/auth/login:
+    post:
+      tags:
+        - BCI
+      summary: "API login at system"
+      operationId: "login"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LoginRequestDTO"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/LoginResponseDTO"
+        "500":
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ErrorDTO"
+  /api/user/create:
+    post:
+      tags:
+        - BCI
+      summary: "API create new user"
+      operationId: "createUser"
+      parameters:
+        - name: "Authorization"
+          in: "header"
+          required: true
+          schema:
+            type: "string"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserRequestDTO"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/UserResponseDTO"
+        "409":
+          description: "Conflict"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ConflictDTO"
+        "500":
+          description: "Internal Server Error"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ErrorDTO"
+components:
+  schemas:
+    ConflictDTO:
+      type: "object"
+      properties:
+        mensaje:
+          type: "string"
+          example: "El correo ya está registrado"
+    ErrorDTO:
+      type: "object"
+      properties:
+        mensaje:
+          type: "string"
+          example: "Ocurrió un error inesperado"
+    LoginRequestDTO:
+      type: "object"
+      properties:
+        email:
+          type: "string"
+          example: "gerency@sermaluc.pe"
+        password:
+          type: "string"
+          example: "deLl#53"
+    LoginResponseDTO:
+      type: "object"
+      properties:
+        token:
+          type: "string"
+          example: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZXJlbmN5QHNlcm1hbHVjLnBlIiwiaWF0IjoxNzM0OTUzMzY0LCJleHAiOjE3MzQ5NTY5NjR9.GxqSDxTZaNJ93JKd6mJyd7SoJYYq0Jr3oBDAxoWzOGs"
+    PhoneDTO:
+      type: "object"
+      properties:
+        number:
+          type: "string"
+          example: "1234567"
+        cityCode:
+          type: "string"
+          example: "1"
+        countryCode:
+          type: "string"
+          example: "57"
+    UserRequestDTO:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+          example: "Juan Rodriguez"
+        email:
+          type: "string"
+          example: "juan@rodriguez.org"
+        password:
+          type: "string"
+          example: "hUnter2"
+        phones:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/PhoneDTO"
+    UserResponseDTO:
+      type: "object"
+      properties:
+        id:
+          type: "string"
+          format: "uuid"
+        name:
+          type: "string"
+          example: "Juan Rodriguez"
+        email:
+          type: "string"
+          example: "juan@rodriguez.org"
+        created:
+          type: "string"
+          format: "date-time"
+        modified:
+          type: "string"
+          format: "date-time"
+        lastLogin:
+          type: "string"
+          format: "date-time"
+        token:
+          type: "string"
+          example: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZXJlbmN5QHNlcm1hbHVjLnBlIiwiaWF0IjoxNzM0OTUzMzY0LCJleHAiOjE3MzQ5NTY5NjR9.GxqSDxTZaNJ93JKd6mJyd7SoJYYq0Jr3oBDAxoWzOGs"
+        active:
+          type: "boolean"
