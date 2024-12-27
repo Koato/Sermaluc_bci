@@ -1,6 +1,5 @@
-package com.bci.sermaluc;
+package com.bci.sermaluc.controller;
 
-import com.bci.sermaluc.controller.AuthController;
 import com.bci.sermaluc.dto.LoginRequestDTO;
 import com.bci.sermaluc.dto.LoginResponseDTO;
 import com.bci.sermaluc.service.AuthService;
@@ -10,9 +9,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
+import java.util.Objects;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -22,7 +22,7 @@ public class AuthControllerTest {
     @InjectMocks
     private AuthController authController;
 
-    @Mock
+    @Spy
     private UserService userService;
 
     @Mock
@@ -48,6 +48,6 @@ public class AuthControllerTest {
 
         // Assert
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(token, response.getBody().getToken());
+        assertEquals(token, Objects.requireNonNull(response.getBody()).getToken());
     }
 }
