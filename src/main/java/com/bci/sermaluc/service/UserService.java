@@ -2,7 +2,6 @@ package com.bci.sermaluc.service;
 
 import com.bci.sermaluc.dto.UserRequestDTO;
 import com.bci.sermaluc.dto.UserResponseDTO;
-
 import java.util.Optional;
 
 public interface UserService {
